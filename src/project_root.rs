@@ -32,7 +32,10 @@ pub fn get_project_root() -> io::Result<PathBuf> {
         let has_cargo =
             read_dir(p)?
                 .into_iter()
-                .any(|p| p.unwrap().file_name() == OsString::from("prettier.exe"));
+                .any(|p| {
+                    let fname = p.unwrap().file_name();
+                    fname == OsString::from("prettier.exe") || fname == OsString::from("prettier")
+                });
         if has_cargo {
             return Ok(PathBuf::from(p))
         }
