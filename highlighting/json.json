@@ -1,0 +1,26 @@
+{
+    "color_map": {
+        "string": "literal_string",
+        "number": "literal_number",
+        "boolean": "literal_boolean"
+    },
+    "pattern_regex": [
+        {
+            "name": "number",
+            "regex": "^([0-9][0-9]*(\\.[0-9][0-9]*)?)$"
+        },
+        {
+            "name": "boolean",
+            "regex": "^((true)|(false))$"
+        }
+    ],
+    "pattern_begin_end": [
+        {
+            "name": "string",
+            "begin": "^\"",
+            "end": "\"$",
+            "include_first": true,
+            "include_end": true
+        }
+    ]
+}

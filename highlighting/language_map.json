@@ -1,0 +1,6 @@
+{
+    "default": "default",
+    "highlighter_map": {
+        "rs": "rust"
+    }
+}

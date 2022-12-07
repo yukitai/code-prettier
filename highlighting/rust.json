@@ -1,0 +1,92 @@
+{
+    "color_map": {
+        "char": "literal_string",
+        "string": "literal_string",
+        "number": "literal_number",
+        "boolean": "literal_boolean",
+        "multiline_note": "note",
+        "call_func": "bold",
+        "define": "bold",
+        "saved_keyword": "keyword",
+        "macro": "keyword",
+        "macro_type": "type"
+    },
+    "pattern_regex": [
+        {
+            "name": "type",
+            "regex": "^((i8)|(u8)|(i16)|(u16)|(i32)|(u32)|(i64)|(u64)|(i128)|(u128)|(isize)|(usize)|(f64)|(f128)|(str)|(bool)|(char)|(String)|(Vec)|(Box)|(Rc)|(Arc)|(Option)|(Some)|(None)|(Result)|(Ok)|(Err))$"
+        },
+        {
+            "name": "macro_type",
+            "regex": "^((block)|(expr)|(ident)|(item)|(lifetime)|(literal)|(meta)|(pat)|(pat_param)|(path)|(stmt)|(tt)|(ty)|(vis))$"
+        },
+        {
+            "name": "keyword",
+            "regex": "^((as)|(break)|(const)|(continue)|(crate)|(dyn)|(else)|(enum)|(extern)|(fn)|(for)|(if)|(impl)|(in)|(let)|(loop)|(match)|(mod)|(move)|(mut)|(pub)|(ref)|(return)|(Self)|(self)|(static)|(struct)|(super)|(trait)|(type)|(unsafe)|(use)|(where)|(while))$"
+        },
+        {
+            "name": "saved_keyword",
+            "regex": "^((abstract)|(async)|(await)|(become)|(box)|(do)|(final)|(macro)|(override)|(priv)|(try)|(typeof)|(unsized)|(virtual)|(yield)|(new)|(std))$"
+        },
+        {
+            "name": "macro",
+            "regex": "^((println)|(print)|(vec)|(stringify)|(write)|(writeln)|(derive)|(inline)|(macro_rules))$"
+        },
+        {
+            "name": "symbol",
+            "regex": "^([a-zA-Z_][a-zA-Z_0-9]*)$"
+        },
+        {
+            "name": "number",
+            "regex": "^([0-9][0-9_]*(\\.[0-9][0-9_]*)?((i8)|(u8)|(i16)|(u16)|(i32)|(u32)|(i64)|(u64)|(i128)|(u128)|(isize)|(usize)|(f64)|(f128))?)$"
+        },
+        {
+            "name": "boolean",
+            "regex": "^((true)|(false))$"
+        }
+    ],
+    "pattern_begin_end": [
+        {
+            "name": "char",
+            "begin": "^'",
+            "end": "[ ']",
+            "include_first": true,
+            "include_end": true
+        },
+        {
+            "name": "string",
+            "begin": "^[rb]?\"",
+            "end": "\"$",
+            "include_first": true,
+            "include_end": true
+        },
+        {
+            "name": "note",
+            "begin": "^//",
+            "end": "[\\n\\r]$",
+            "include_first": true,
+            "include_end": false
+        },
+        {
+            "name": "multiline_note",
+            "begin": "^/\\*",
+            "end": "\\*/$",
+            "include_first": true,
+            "include_end": true
+        },
+        {
+            "name": "define",
+            "begin": "^((struct)|(union)|(enum)|(trait)|(fn))$",
+            "end": "^[\\{\\[\\(]",
+            "include_first": false,
+            "include_end": false
+        },
+        {
+            "name": "define",
+            "begin": "^type$",
+            "end": "^[ =]",
+            "include_first": false,
+            "include_end": false
+        }
+    ]
+}
